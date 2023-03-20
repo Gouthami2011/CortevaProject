@@ -24,10 +24,10 @@ yeildSchema = StructType() \
       .add("Yield",StringType(),True)
 
 # Peforms the complete ETL process for the project
-def performETL(log):
+def performETL(log, test=None):
     
     log.warning('This message will get logged on to a file')
-    setEnvironement()
+    setEnvironement(test)
     spark = get_spark()
     log.info("Create tables if not exists...")
     

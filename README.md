@@ -13,10 +13,15 @@ Major Steps in Acheving given task
 
 3. Create API end points for accessing the loaded data into table
     Flask API REST points are
-    1. http://0.0.0.0:5000/api/weather?year=<year>&month=<month>&date=<date>&StationID=<StationID>
-    2. http://0.0.0.0:5000/api/weather/<PageNumber>?year=<year>&month=<month>&date=<date>&StationID=<StationID>
-    3. http://0.0.0.0:5000/api/weather/Stats?year=<year>&StationID=<StationID>
-    4. http://0.0.0.0:5000/api/weather/Stats/<PageNumber>?year=<year>&StationID=<StationID>
+    1. http://0.0.0.0:9000/api/weather?year=<year>&month=<month>&date=<date>&StationID=<StationID>
+    2. http://0.0.0.0:9000/api/weather/<PageNumber>?year=<year>&month=<month>&date=<date>&StationID=<StationID>
+    3. http://0.0.0.0:9000/api/weather/Stats?year=<year>&StationID=<StationID>
+    4. http://0.0.0.0:9000/api/weather/Stats/<PageNumber>?year=<year>&StationID=<StationID>
+4. Swapper documentation will be available in http://0.0.0.0:9000/swagger/
+
+Note: Use http://0.0.0.0:9000 or http://localhost:9000
+Note: Added some sample unit test cases where it will load PySpark Dataframe and will test whether the data from both the api fetched a specific data. 
+
 
 # How to run the project     
 docker compose up

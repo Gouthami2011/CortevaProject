@@ -8,14 +8,19 @@ from dotenv import load_dotenv
 log = logging.getLogger(__name__)
 
 # Fetches all the environmental values for both spark and Flask API
-def setEnvironement():
+def setEnvironement(test=None):
     path = Path(os.getcwd()).absolute()
     dotenv_path = os.path.join(path, "config/.env")
     
     if os.path.exists(dotenv_path):
         load_dotenv(dotenv_path)
+    if test is None:
 
-    DATA_DIR = os.path.join(path, "Data")
+        DATA_DIR = os.path.join(path, "Data")
+
+    else:
+
+        DATA_DIR = os.path.join(os.path.join(path, "TestData"), "Data")
 
     os.environ['WEATHERDATA'] = os.path.join(DATA_DIR, "wx_data")
     os.environ['YIELDDATA'] = os.path.join(DATA_DIR, "yld_data")

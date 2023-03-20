@@ -1,0 +1,285 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "description": "Sridhar",
+      "version": "1.0.0",
+      "title": "CortevaApi",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "servers": [
+      {
+        "url": "/"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Book Request",
+        "description": "Example API for requesting and return book requests"
+      }
+    ],
+    "paths": {
+      "/api/weather": {
+        "parameters": [
+            
+            {
+              "in": "path",
+              "name": "StationID",
+              "required": false,
+              "description": "Station ID Number",
+              "schema": {
+                "$ref": "#/components/schemas/StationID"
+              }
+            },
+            {
+                "in": "query",
+                "name": "year",
+                "required": false,
+                "description": "Year of the weather recorded",
+                "schema": {
+                  "$ref": "#/components/schemas/Year"
+                }
+            },
+            {
+                "in": "query",
+                "name": "month",
+                "required": false,
+                "description": "Month of the weather recorded",
+                "schema": {
+                  "$ref": "#/components/schemas/month"
+                }
+            },
+            {
+                "in": "query",
+                "name": "date",
+                "required": false,
+                "description": "Date of the weather recorded",
+                "schema": {
+                  "$ref": "#/components/schemas/date"
+                }
+            }
+          ],
+        "get": {
+          "tags": [
+            "get Weather Data"
+          ],
+          "summary": "Returns weather data",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/bookRequests"
+              }
+            }
+          }
+        }
+      },
+      "/api/weather/{page}": {
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "description": "Page Number of the Weather Fetch",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "StationID",
+            "required": false,
+            "description": "Station ID Number",
+            "schema": {
+              "$ref": "#/components/schemas/StationID"
+            }
+          },
+          {
+              "in": "query",
+              "name": "year",
+              "required": false,
+              "description": "Year of the weather recorded",
+              "schema": {
+                "$ref": "#/components/schemas/Year"
+              }
+          },
+          {
+              "in": "query",
+              "name": "month",
+              "required": false,
+              "description": "Month of the weather recorded",
+              "schema": {
+                "$ref": "#/components/schemas/month"
+              }
+          },
+          {
+              "in": "query",
+              "name": "date",
+              "required": false,
+              "description": "Date of the weather recorded",
+              "schema": {
+                "$ref": "#/components/schemas/date"
+              }
+          }
+        ],
+        "get": {
+          "tags": [
+            "Get Weather Data with page number"
+          ],
+          "summary": "Get weather data for a particular page",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/WeatherRequest"
+              }
+            },
+            "400": {
+              "description": "Failed. Misunderstood Request."
+            },
+            "404": {
+              "description": "Failed. Weather Request not found."
+            }
+          }
+        }
+      },
+      "/api/weather/Stat": {
+        "parameters": [
+            {
+              "in": "query",
+              "name": "StationID",
+              "required": false,
+              "description": "Station ID Number",
+              "schema": {
+                "$ref": "#/components/schemas/StationID"
+              }
+            },
+            {
+                "in": "query",
+                "name": "year",
+                "required": false,
+                "description": "Year of the weather recorded",
+                "schema": {
+                  "$ref": "#/components/schemas/Year"
+                }
+            }
+        ],
+        "get": {
+          "tags": [
+            "get Weather Analysis Data"
+          ],
+          "summary": "Returns weather Analysis data",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/bookRequests"
+              }
+            }
+          }
+        }
+      },
+      "/api/weather/Stat/{page}": {
+        "parameters": [
+          {
+            "name": "page",
+            "in": "path",
+            "required": true,
+            "description": "Page Number of the Weather Fetch",
+            "type": "integer"
+          },
+          {
+            "in": "query",
+            "name": "StationID",
+            "required": false,
+            "description": "Station ID Number",
+            "schema": {
+              "$ref": "#/components/schemas/StationID"
+            }
+          },
+          {
+              "in": "query",
+              "name": "year",
+              "required": false,
+              "description": "Year of the weather recorded",
+              "schema": {
+                "$ref": "#/components/schemas/Year"
+              }
+          }
+        ],
+        "get": {
+          "tags": [
+            "Get Weather Analysis Data with page number"
+          ],
+          "summary": "Get weather data for a particular page",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/components/schemas/WeatherRequest"
+              }
+            },
+            "400": {
+              "description": "Failed. Misunderstood Request."
+            },
+            "404": {
+              "description": "Failed. Weather Request not found."
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "StationID": {
+          "properties": {
+            "text": {
+                "type": "string",
+                "format": "string"
+            }
+          }
+        },
+        "Year": {
+            "properties": {
+              "integer": {
+                  "type": "string",
+                  "format": "integer"
+              }
+            }
+        },
+        "month": {
+            "properties": {
+              "text": {
+                  "type": "string",
+                  "format": "integer"
+              }
+            }
+          },
+          "date": {
+            "properties": {
+              "text": {
+                  "type": "string",
+                  "format": "integer"
+              }
+            }
+          },
+        "WeatherRequest": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "format": "string"
+            },
+            "records": {
+              "type": "object",
+              "format": "json"
+            },
+            "Page": {
+              "type": "integer",
+              "format": "number"
+            }
+          }
+        }
+      }
+    }
+  }

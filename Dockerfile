@@ -9,6 +9,8 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
+RUN pip install flask_swagger_ui
+
 COPY . .
 
 # EXPOSE 80
