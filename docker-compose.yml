@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  appcorteva:
+    container_name: appcorteva
+    image: appcorteva
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+      - FLASK_APP=app
+      - PORT=9000
+    depends_on:
+      - db
+  
+  db:
+    container_name: db
+    image: postgres:12
+    ports:
+      - "15432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+
+volumes:
+  pgdata: {}
