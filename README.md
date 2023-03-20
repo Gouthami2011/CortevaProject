@@ -24,8 +24,6 @@ Note: Use http://0.0.0.0:9000 or http://localhost:9000
 # Testing
 Unit test cases are written to validate the entry in table is corresponding to the entry in the test data. Basic Unit test cases are written for both /api/weather and /api/weather/Stat api calls.
 
-Note: Added some sample unit test cases where it will load PySpark Dataframe and will test whether the data from both the api fetched a specific data. 
-
 
 # How to run the project     
 docker compose up
