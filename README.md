@@ -28,6 +28,11 @@ Unit test cases are written to validate the entry in table is corresponding to t
 # How to run the project     
 "docker-compose up"
 
+    Steps of execution in docker
+    1. Setup Database.
+    2. Perform ETL processing
+    3. Start Flask API
+    
 # Deployment:
 
 1. AWS S3 - Store the file which needs to be processed on ETL
