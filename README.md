@@ -15,13 +15,13 @@ Major Steps in Acheving given task
     Flask API REST points are
     1. http://0.0.0.0:9000/api/weather?year=<year>&month=<month>&date=<date>&StationID=<StationID>
     2. http://0.0.0.0:9000/api/weather/<PageNumber>?year=<year>&month=<month>&date=<date>&StationID=<StationID>
-    3. http://0.0.0.0:9000/api/weather/Stats?year=<year>&StationID=<StationID>
+    3. http://0.0.0.0:9000/api/wea ther/Stats?year=<year>&StationID=<StationID>
     4. http://0.0.0.0:9000/api/weather/Stats/<PageNumber>?year=<year>&StationID=<StationID>
 4. Swapper documentation will be available in http://0.0.0.0:9000/swagger/
 
 Note: Use http://0.0.0.0:9000 or http://localhost:9000
 
-#Testing
+# Testing
 Unit test cases are written to validate the entry in table is corresponding to the entry in the test data. Basic Unit test cases are written for both /api/weather and /api/weather/Stat api calls.
 
 Note: Added some sample unit test cases where it will load PySpark Dataframe and will test whether the data from both the api fetched a specific data. 

@@ -1,9 +1,6 @@
 # Previous imports remain...
 from flask import Flask, request
-import unittest
 import os
-from main import *
-from app import create_app
 from app.model import weatherAnalysisFetch, weatherFetch
 from config.configSet import setEnvironement
 from flask_swagger_ui import get_swaggerui_blueprint
@@ -56,6 +53,7 @@ def create_app():
 
     return app
 
-setEnvironement()
-app = create_app()
-app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT'))
+if __name__ == '__main__':
+    setEnvironement()
+    app = create_app()
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT'))
