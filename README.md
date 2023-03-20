@@ -26,7 +26,7 @@ Unit test cases are written to validate the entry in table is corresponding to t
 
 
 # How to run the project     
-docker compose up
+"docker-compose up"
 
 # Deployment:
 
